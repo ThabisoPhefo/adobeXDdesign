@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Carousel from '../components/Carousel'
+import contentImage from '../assets/resources/Img_004.jpg'
 import './Home.css'
 
 const Home = () => {
@@ -29,7 +30,7 @@ const Home = () => {
             </div>
             <div className="content-image">
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                src={contentImage} 
                 alt="Modern office space" 
               />
             </div>

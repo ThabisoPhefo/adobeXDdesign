@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "title": "Lorem ipsum dolor",
+        "subtitle": "Quem vide tincidunt pri ei, id mea omnium denique.",
+        "ctaText": "Contact us",
+        "ctaLink": "/contact"
+      },
+      {
+        "title": "Ut enim blandit",
+        "subtitle": "Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare",
+        "ctaText": "Contact us", 
+        "ctaLink": "/contact"
+      }
+    ]
+  },
+  "contentSection": {
+    "title": "Justo petentium te vix, scripta regione urbanitas",
+    "description": "Populo facilisi nam no, dolor deleniti deseruisse ne cum, nam quodsi aliquam eligendi ne. Ferri euismod accusata te nec, summo accusam sit vix. Ad vix legere impetus, nam consequat reformidans ut. No sit consul integre voluptatibus, omnium luctus ne mel. Et ancillae recteque deterruisset sed, ea nec odio option, ferri assum eum et.",
+    "features": [
+      "• Te pri efficiendi assueverit, id molestie suavitate per",
+      "• Te nam dolorem rationibus repudiandae, ne ius falli aliquip consequatur", 
+      "• Ut qui dicat copiosae interpretaris",
+      "• Ut indoctum patrioque voluptatia duo, ut vis semper abhorreant"
+    ],
+    "ctaText": "Learn more",
+    "ctaLink": "/about",
+    "imageAlt": "Modern office space"
+  },
+  "callToActionSection": {
+    "title": "Nulla sem urna, dictum sed nisl in, viverra rutrum neque",
+    "description": "Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut ante ligula. Pellentesque augue ex, pellentesque et maximus nec, eleifend at lorem. Vestibulum rutrum malesuada sapien, molestie mattis velit maximus at. Quisque lacinia hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam.",
+    "ctaText": "Log in",
+    "ctaLink": "#"
+  },
+  "bottomSection": {
+    "title": "Justo petentium te vix, scripta regione urbanitas",
+    "subtitle": "Tariq duo ut vis semper abhorreant",
+    "columns": [
+      {
+        "text": "Pellentesque ac condimentum felis, suscipiendque sed velit. Maecenas dolor nec laoreet mollit. Nam auctor ultrices sapibus. Donec sit amet dui quis finibus lacus. Cras in ultricies neque. Curabitur eget turpis iaculis diam congue sagittis sit amet quis est. Nullam quis est ante. Nunc felis massa, pharetra non gravida in, fermentum sit amet enim. In hac habitasse platea dictumst. Donec rutrum, lorem eu mollis lacinia, dolor ipsum facilisis quam, at pulvinar felis tellus sed elit."
+      },
+      {
+        "text": "Sed volutpat magna ac felis hendrerit tempus. Duis eget lacinia mauris. Mauris quis nunc sem orci eget porta blandit a nec sapien. Mauris porttitor lorem ut sagittis auctor. Donec molestie tempor nibh, nec venenatis arcu ullamcorper et amet. Nulla facilisi. Proin cursus neque et volutpat tempor. Proin faucibus ex non nibh tempor blandit. Donec dapibus sapien et lobortis fermentum. Nullam ut quam nec magna tristique porta volutpat ut lorem. Morbi ac sodales diam ut lorem. Pellentesque molestie quam et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque molestie lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra."
+      },
+      {
+        "text": "Mauris quis nunc sem orci eget porta blandit a nec sapien. Mauris porttitor lorem ut sagittis auctor. Donec molestie tempor nibh, nec venenatis arcu ullamcorper et amet. Nulla facilisi. Proin cursus neque et volutpat tempor. Proin faucibus ex non nibh tempor blandit. Donec dapibus sapien et lobortis fermentum. Nullam ut quam nec magna tristique porta volutpat ut lorem. Morbi ac sodales diam ut lorem. Pellentesque molestie quam et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque molestie lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra."
+      }
+    ],
+    "additionalColumns": [
+      {
+        "text": "Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut ante ligula. Pellentesque augue ex, pellentesque et maximus nec, eleifend at lorem. Vestibulum rutrum malesuada sapien, molestie mattis velit maximus at. Quisque lacinia hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam. Suspendisse tristique ex vel sed imperdiet. Aenean eu magna ut nisl placerat fringilla in sed diam. Suspendisse tristique ex vel sed imperdiet."
+      },
+      {
+        "text": "Sed sed sapien pretium, maximus felis vel, mollis est. Sed sed sapien pretium, maximus felis vel, mollis est. Pellentesque eget justo lobortis ex amet suscipit non, auctor non. Pellentesque eget justo lobortis ex amet suscipit non, auctor non."
+      }
+    ],
+    "ctaText": "Contact us",
+    "ctaLink": "/contact"
+  }
+}

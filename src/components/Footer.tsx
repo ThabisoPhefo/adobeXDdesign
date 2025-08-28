@@ -1,4 +1,5 @@
 import './Footer.css'
+import logo from '../assets/resources/Logo.svg'
 
 const Footer = () => {
   return (
@@ -6,8 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-left">
           <div className="logo-section">
-            <div className="logo-symbol"></div>
-            <span className="company-name">COMPANY</span>
+            <img src={logo} alt="Company Logo" className="footer-logo" />
           </div>
         </div>
         <div className="footer-right">

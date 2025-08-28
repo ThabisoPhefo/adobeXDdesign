@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "About Our Company",
+    "subtitle": "Discover our story, mission, and the values that drive us forward."
+  },
+  "story": {
+    "title": "Our Story",
+    "content": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    ],
+    "imageAlt": "Team collaboration"
+  },
+  "values": {
+    "title": "Our Values",
+    "items": [
+      {
+        "icon": "🎯",
+        "title": "Innovation",
+        "description": "We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions."
+      },
+      {
+        "icon": "🤝", 
+        "title": "Collaboration",
+        "description": "We believe in the power of teamwork and foster an environment of open communication."
+      },
+      {
+        "icon": "⭐",
+        "title": "Excellence", 
+        "description": "We strive for excellence in everything we do, delivering quality results that exceed expectations."
+      },
+      {
+        "icon": "🌱",
+        "title": "Growth",
+        "description": "We are committed to continuous learning and development, both personally and professionally."
+      }
+    ]
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "To empower businesses and individuals through innovative technology solutions that simplify complex challenges and create meaningful impact in the world.",
+    "stats": [
+      {
+        "number": "500+",
+        "label": "Projects Completed"
+      },
+      {
+        "number": "50+", 
+        "label": "Team Members"
+      },
+      {
+        "number": "10+",
+        "label": "Years Experience"
+      }
+    ]
+  }
+}

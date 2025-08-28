@@ -21,26 +21,41 @@ const Carousel = () => {
       try {
         const response = await axios.get('https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details')
         if (response.data.Details && response.data.Details.length > 0) {
-          setItems(response.data.Details)
+          // Filter to only show the first 2 images (swiper_image_1.jpg and swiper_image_2.jpg)
+          const filteredItems = response.data.Details.filter((item: CarouselItem) => 
+            item.ImageUrl.includes('swiper_image_1.jpg') || 
+            item.ImageUrl.includes('swiper_image_2.jpg')
+          ).slice(0, 2)
+          setItems(filteredItems)
         } else {
-          // Fallback data based on the design
+          // Fallback data with only 2 specific images
           setItems([
             {
-              ImageUrl: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80',
+              ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_1.jpg',
               Title: 'Lorem ipsum dolor',
               Subtitle: 'Quem vide tincidunt pri ei, id mea omnium denique.'
+            },
+            {
+              ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_2.jpg',
+              Title: 'Ut enim blandit',
+              Subtitle: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare'
             }
           ])
         }
         setLoading(false)
       } catch (err) {
         console.error('Error fetching carousel data:', err)
-        // Fallback data based on the design
+        // Fallback data with only 2 specific images
         setItems([
           {
-            ImageUrl: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80',
+            ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_1.jpg',
             Title: 'Lorem ipsum dolor',
             Subtitle: 'Quem vide tincidunt pri ei, id mea omnium denique.'
+          },
+          {
+            ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_2.jpg',
+            Title: 'Ut enim blandit',
+            Subtitle: 'Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare'
           }
         ])
         setError('Using fallback data')
