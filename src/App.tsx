@@ -1,14 +1,23 @@
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs'
+import ContactUs from './pages/ContactUs'
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Navbar />
-      <div style={{ marginTop: '90px', padding: '20px' }}>
-        <h1>Welcome to Company</h1>
-        <p>This is the main content area. The navbar is now fixed at the top.</p>
-      </div>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+        </Routes>
+      </main>
+      <Footer />
     </div>
   )
 }
