@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
@@ -53,6 +53,13 @@ const ContactUs = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
 
+  // Scroll to top when success message appears
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      window.scrollTo(0, 0)
+    }
+  }, [submitStatus])
+
   const addPhoneNumber = () => {
     setFormData(prev => ({
       ...prev,
@@ -75,7 +82,6 @@ const ContactUs = () => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
 
-    // Required field validation
     if (!formData.FullName.trim()) {
       newErrors.FullName = 'Full name is required'
     }
@@ -86,13 +92,11 @@ const ContactUs = () => {
       newErrors.EmailAddress = 'Please enter a valid email address'
     }
 
-    // Phone numbers are optional, no validation needed
 
     if (!formData.Message.trim()) {
       newErrors.Message = 'Message is required'
     }
 
-    // Address validation if included
     if (formData.bIncludeAddressDetails && formData.AddressDetails) {
       if (!formData.AddressDetails.AddressLine1.trim()) {
         newErrors.AddressLine1 = 'Address line 1 is required'
@@ -137,7 +141,6 @@ const ContactUs = () => {
       }))
     }
 
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -175,7 +178,6 @@ const ContactUs = () => {
       if (response.status === 200) {
         setSubmitStatus('success')
         setSubmitMessage(contactData.form.messages.success)
-        // Reset form
         setFormData({
           FullName: '',
           EmailAddress: '',
@@ -213,7 +215,8 @@ const ContactUs = () => {
             <p>Fusce efficitur eu purus ac posuere nean imperdiet risus dolor, nec accumsan velit ornare sit amet.</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="simple-contact-form">
+          {submitStatus !== 'success' && (
+            <form onSubmit={handleSubmit} className="simple-contact-form">
             <div className="form-row-simple">
               <div className="form-group-simple">
                 <label htmlFor="FullName">Full name</label>
@@ -378,46 +381,51 @@ const ContactUs = () => {
               </div>
             )}
 
-            {submitStatus !== 'idle' && (
-              <div className={`submit-message ${submitStatus}`}>
-                {submitStatus === 'success' ? (
-                  <div className="success-message-container">
-                    <div className="success-icon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
-                      </svg>
-                    </div>
-                    <div className="success-text">
-                      <div className="success-title">{submitMessage}</div>
-                      <div className="success-subtitle">{contactData.form.messages.successSubtext}</div>
-                    </div>
-                  </div>
-                ) : (
-                  submitMessage
-                )}
+              {submitStatus === 'error' && (
+                <div className={`submit-message ${submitStatus}`}>
+                  {submitMessage}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                className="simple-submit-btn"
+                disabled={isSubmitting}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+                </svg>
+                {isSubmitting ? 'Submitting...' : 'Submit'}
+              </button>
+            </form>
+          )}
+
+          {submitStatus === 'success' && (
+            <div className={`submit-message ${submitStatus}`}>
+              <div className="success-message-container">
+                <div className="success-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="success-text">
+                  <div className="success-title">{submitMessage}</div>
+                  <div className="success-subtitle">{contactData.form.messages.successSubtext}</div>
+                </div>
               </div>
-            )}
-
-            <button 
-              type="submit" 
-              className="simple-submit-btn"
-              disabled={isSubmitting}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
-              </svg>
-              {isSubmitting ? 'Submitting...' : 'Submit'}
-            </button>
-          </form>
+            </div>
+          )}
         </div>
 
-        <div className="contact-logo">
-          <LazyImage 
-            src={contactImage} 
-            alt="Contact illustration" 
-            className="contact-image"
-          />
-        </div>
+        {submitStatus !== 'success' && (
+          <div className="contact-logo">
+            <LazyImage 
+              src={contactImage} 
+              alt="Contact illustration" 
+              className="contact-image"
+            />
+          </div>
+        )}
       </div>
     </div>
   )

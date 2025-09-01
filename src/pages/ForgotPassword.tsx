@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
@@ -21,6 +21,13 @@ const ForgotPassword = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
+
+  // Scroll to top when success message appears
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      window.scrollTo(0, 0)
+    }
+  }, [submitStatus])
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -48,7 +55,6 @@ const ForgotPassword = () => {
       [name]: value
     }))
 
-    // Clear error when user starts typing
     if (errors[name as keyof ForgotPasswordFormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -68,14 +74,11 @@ const ForgotPassword = () => {
     setSubmitStatus('idle')
 
     try {
-      // Simulate API call - replace with actual password reset endpoint
       await new Promise(resolve => setTimeout(resolve, 2000))
       
-      // For demo purposes, simulate success
       setSubmitStatus('success')
       setSubmitMessage(forgotPasswordData.form.messages.success)
       
-      // Reset form on success
       setFormData({
         EmailAddress: ''
       })

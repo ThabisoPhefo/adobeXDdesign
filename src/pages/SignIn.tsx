@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
@@ -27,6 +27,13 @@ const SignIn = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
 
+  // Scroll to top when success message appears
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      window.scrollTo(0, 0)
+    }
+  }, [submitStatus])
+
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
@@ -35,7 +42,6 @@ const SignIn = () => {
   const validateForm = (): boolean => {
     const newErrors: SignInFormErrors = {}
 
-    // Required field validation
     if (!formData.EmailAddress.trim()) {
       newErrors.EmailAddress = 'Email address is required'
     } else if (!validateEmail(formData.EmailAddress)) {
@@ -67,7 +73,6 @@ const SignIn = () => {
       }))
     }
 
-    // Clear error when user starts typing
     if (errors[name as keyof SignInFormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -87,15 +92,11 @@ const SignIn = () => {
     setSubmitStatus('idle')
 
     try {
-      // Simulate API call - replace with actual authentication endpoint
       await new Promise(resolve => setTimeout(resolve, 1500))
       
-      // For demo purposes, simulate success
       setSubmitStatus('success')
       setSubmitMessage(signinData.form.messages.success)
       
-      // In a real app, you would handle the authentication response here
-      // e.g., store tokens, redirect to dashboard, etc.
       
     } catch (error: any) {
       setSubmitStatus('error')

@@ -1960,6 +1960,11 @@ img {
   gap: 15px;
 }
 
+/* Success message styling when form is hidden */
+.contact-form-wrapper:has(.submit-message.success) {
+  min-height: 300px;
+}
+
 .success-icon {
   width: 60px;
   height: 60px;

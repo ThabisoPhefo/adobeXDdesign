@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
@@ -36,13 +36,19 @@ const SignUp = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
 
+  // Scroll to top when success message appears
+  useEffect(() => {
+    if (submitStatus === 'success') {
+      window.scrollTo(0, 0)
+    }
+  }, [submitStatus])
+
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
   }
 
   const validatePassword = (password: string): boolean => {
-    // Password should be at least 8 characters and contain at least one number and one letter
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/
     return passwordRegex.test(password)
   }
@@ -98,7 +104,6 @@ const SignUp = () => {
       }))
     }
 
-    // Clear error when user starts typing
     if (errors[name as keyof SignUpFormErrors]) {
       setErrors(prev => ({
         ...prev,
@@ -118,14 +123,11 @@ const SignUp = () => {
     setSubmitStatus('idle')
 
     try {
-      // Simulate API call - replace with actual registration endpoint
       await new Promise(resolve => setTimeout(resolve, 2000))
       
-      // For demo purposes, simulate success
       setSubmitStatus('success')
       setSubmitMessage(signupData.form.messages.success)
       
-      // Reset form on success
       setFormData({
         FullName: '',
         EmailAddress: '',
