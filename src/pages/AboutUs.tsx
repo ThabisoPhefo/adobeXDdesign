@@ -1,90 +1,50 @@
 
+import officeImage from '../assets/resources/Img_002.jpg'
 
 const AboutUs = () => {
   return (
-    <div className="about-us">
-      <div className="about-hero">
-        <div className="about-hero-content">
-          <h1>About Our Company</h1>
-          <p>Discover our story, mission, and the values that drive us forward.</p>
+    <div className="about-us-simple">
+      <div className="about-container">
+        <div className="about-content-simple">
+          <h1>About us</h1>
+          
+          <p>
+            Populo facilisi nam no, dolor deleniti deseruisse ne cum, nam quodsi aliquam eligendi ne. Ferri euismod accusata te nec, summo accumsan at vix. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar enim sed quam efficitur finibus. Fusce efficitur condimentum orci in hendrerit. Etiam aliquam vitae ante et scelerisque. 
+            Pellentesque commodo felis metus, nec congue nisl facilisis quis. Aenean maximus bibendum congue. Nulla pretium elit non facilisis imperdiet. Curabitur auctor lacus turpis, quis fringilla quam 
+            faucibus sed. Sed consequat magna enim, eu efficitur purus viverra sit amet. <a href="#" className="about-link">Praesent varius porta blandit mollis</a>, felis ut convallis convallis.
+          </p>
+          
+          <p>
+            Quisque non lectus dolor. In id dictum ex. Aenean laoreet velit sem, in dictum orci cursus sit amet. Duis ex est, aliquam quis tincidunt ut, imperdiet a lacus. Vestibulum condimentum vehicula 
+            nisl, at vestibulum velit varius sit amet. Cras lacinia facilisis tempus. Fusce nec tempus mauris. Sed vitae diam porta, tincidunt orci ac, maximus enim. Integer sodales sodales turpis, sit amet 
+            ultrices arcu lacinia id. Pellentesque volutpat in massa sit amet venenatis. Aliquam erat volutpat. Sed mollis, felis ut convallis convallis, nibh quam fringilla metus, a tempus metus nunc a sem. 
+            Morbi ut orci convallis, mollis orci quis, efficitur nibh.
+          </p>
+
+          <div className="about-image-simple">
+            <img 
+              src={officeImage} 
+              alt="Modern office space with colorful chairs and open workspace" 
+            />
+          </div>
+
+          <p>
+            Integer ullamcorper nisl non ultricies consequat. Mauris at ipsum vel erat fringilla placerat ut eget nibh. Mauris vehicula a lectus dignissim ultrices. Sed congue nec libero sit amet vestibulum. 
+            Donec dignissim nec ligula quis placerat. Vivamus ornitor sed urna nec semper. Ut quis bibendum, est vitae placerat ultricies, diam massa congue magna, quis blandit nibh ante vitae nibh. 
+            Aliquam eu lobortis augue, eu vestibulum lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a ligula vitae nisl blandit tempus ut sit amet urna. Mauris convallis nisl a 
+            interdum semper. Fusce interdum ullamcorper purus sed aliquam. Fusce ut mollis nisl, quis lacinia quam. Donec ligula metus, volutpat a odio euismod, dapibus iaculis arcu. Ut lobortis magna 
+            vehicula laoreet feugiat.
+          </p>
+
+          <h3>Taria duo ut vis semper abhorreant:</h3>
+          
+          <ul className="about-list">
+            <li>Te pri efficiendi assueverit, id molestie suavitate per</li>
+            <li>Te nam dolorem rationibus repudiandae, ne ius falli aliquip consequat</li>
+          </ul>
         </div>
       </div>
-
-      <section className="about-content">
-        <div className="content-container">
-          <div className="about-section">
-            <div className="about-text">
-              <h2>Our Story</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div className="about-image">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                alt="Team collaboration" 
-              />
-            </div>
-          </div>
-
-          <div className="values-section">
-            <h2>Our Values</h2>
-            <div className="values-grid">
-              <div className="value-item">
-                <div className="value-icon">🎯</div>
-                <h3>Innovation</h3>
-                <p>We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.</p>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">🤝</div>
-                <h3>Collaboration</h3>
-                <p>We believe in the power of teamwork and foster an environment of open communication.</p>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">⭐</div>
-                <h3>Excellence</h3>
-                <p>We strive for excellence in everything we do, delivering quality results that exceed expectations.</p>
-              </div>
-              <div className="value-item">
-                <div className="value-icon">🌱</div>
-                <h3>Growth</h3>
-                <p>We are committed to continuous learning and development, both personally and professionally.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mission-section">
-            <div className="mission-content">
-              <h2>Our Mission</h2>
-              <p>
-                To empower businesses and individuals through innovative technology solutions that 
-                simplify complex challenges and create meaningful impact in the world.
-              </p>
-              <div className="stats">
-                <div className="stat-item">
-                  <h3>500+</h3>
-                  <p>Projects Completed</p>
-                </div>
-                <div className="stat-item">
-                  <h3>50+</h3>
-                  <p>Team Members</p>
-                </div>
-                <div className="stat-item">
-                  <h3>10+</h3>
-                  <p>Years Experience</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

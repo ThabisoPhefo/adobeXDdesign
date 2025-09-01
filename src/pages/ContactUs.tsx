@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-
+import contactImage from '../assets/resources/Img_Contact.png'
 
 interface FormData {
   FullName: string
@@ -51,6 +51,20 @@ const ContactUs = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitMessage, setSubmitMessage] = useState('')
 
+  const addPhoneNumber = () => {
+    setFormData(prev => ({
+      ...prev,
+      PhoneNumbers: [...prev.PhoneNumbers, '']
+    }))
+  }
+
+  const updatePhoneNumber = (index: number, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      PhoneNumbers: prev.PhoneNumbers.map((phone, i) => i === index ? value : phone)
+    }))
+  }
+
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
@@ -70,9 +84,7 @@ const ContactUs = () => {
       newErrors.EmailAddress = 'Please enter a valid email address'
     }
 
-    if (!formData.PhoneNumbers[0] || !formData.PhoneNumbers[0].trim()) {
-      newErrors.PhoneNumbers = 'Phone number is required'
-    }
+    // Phone numbers are optional, no validation needed
 
     if (!formData.Message.trim()) {
       newErrors.Message = 'Message is required'
@@ -106,11 +118,6 @@ const ContactUs = () => {
       setFormData(prev => ({
         ...prev,
         [name]: checked
-      }))
-    } else if (name === 'PhoneNumbers') {
-      setFormData(prev => ({
-        ...prev,
-        PhoneNumbers: [value]
       }))
     } else if (name.startsWith('AddressDetails.')) {
       const addressField = name.split('.')[1]
@@ -196,91 +203,102 @@ const ContactUs = () => {
   }
 
   return (
-    <div className="contact-us">
-      <div className="contact-hero">
-        <div className="contact-hero-content">
-          <h1>Contact Us</h1>
-          <p>Get in touch with our team. We'd love to hear from you.</p>
-        </div>
-      </div>
+    <div className="contact-us-new">
+      <div className="contact-container">
+        <div className="contact-form-wrapper">
+          <div className="contact-header">
+            <h1>Contact us</h1>
+            <p>Fusce efficitur eu purus ac posuere nean imperdiet risus dolor, nec accumsan velit ornare sit amet.</p>
+          </div>
 
-      <section className="contact-content">
-        <div className="content-container">
-          <div className="contact-form-section">
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="FullName">Full Name *</label>
-                  <input
-                    type="text"
-                    id="FullName"
-                    name="FullName"
-                    value={formData.FullName}
-                    onChange={handleInputChange}
-                    className={errors.FullName ? 'error' : ''}
-                  />
-                  {errors.FullName && <span className="error-message">{errors.FullName}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="EmailAddress">Email Address *</label>
-                  <input
-                    type="email"
-                    id="EmailAddress"
-                    name="EmailAddress"
-                    value={formData.EmailAddress}
-                    onChange={handleInputChange}
-                    className={errors.EmailAddress ? 'error' : ''}
-                  />
-                  {errors.EmailAddress && <span className="error-message">{errors.EmailAddress}</span>}
-                </div>
+          <form onSubmit={handleSubmit} className="simple-contact-form">
+            <div className="form-row-simple">
+              <div className="form-group-simple">
+                <label htmlFor="FullName">Full name</label>
+                <input
+                  type="text"
+                  id="FullName"
+                  name="FullName"
+                  value={formData.FullName}
+                  onChange={handleInputChange}
+                  className={errors.FullName ? 'error' : ''}
+                />
+                {errors.FullName && <span className="error-message">{errors.FullName}</span>}
               </div>
 
-                              <div className="form-group">
-                  <label htmlFor="PhoneNumbers">Phone Number *</label>
+              <div className="form-group-simple">
+                <label htmlFor="EmailAddress">Email address</label>
+                <input
+                  type="email"
+                  id="EmailAddress"
+                  name="EmailAddress"
+                  value={formData.EmailAddress}
+                  onChange={handleInputChange}
+                  className={errors.EmailAddress ? 'error' : ''}
+                />
+                {errors.EmailAddress && <span className="error-message">{errors.EmailAddress}</span>}
+              </div>
+            </div>
+
+            <div className="phone-section">
+              {formData.PhoneNumbers.map((phone, index) => (
+                <div key={index} className="form-group-simple">
+                  <label htmlFor={`phone-${index}`}>
+                    Phone number {index + 1 < 10 ? `0${index + 1}` : index + 1} - optional
+                  </label>
                   <input
                     type="tel"
-                    id="PhoneNumbers"
-                    name="PhoneNumbers"
-                    value={formData.PhoneNumbers[0] || ''}
-                    onChange={handleInputChange}
-                    className={errors.PhoneNumbers ? 'error' : ''}
+                    id={`phone-${index}`}
+                    value={phone}
+                    onChange={(e) => updatePhoneNumber(index, e.target.value)}
                   />
-                  {errors.PhoneNumbers && <span className="error-message">{errors.PhoneNumbers}</span>}
                 </div>
+              ))}
+              
+              <button 
+                type="button" 
+                className="add-phone-btn"
+                onClick={addPhoneNumber}
+              >
+                Add new phone number
+              </button>
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="Message">Message *</label>
-                <textarea
-                  id="Message"
-                  name="Message"
-                  rows={5}
-                  value={formData.Message}
+            <div className="form-group-simple message-group">
+              <div className="message-header">
+                <label htmlFor="Message">Message</label>
+                <span className="char-limit">Maximum text length is 1000 characters</span>
+              </div>
+              <textarea
+                id="Message"
+                name="Message"
+                placeholder="Type your text here"
+                maxLength={1000}
+                value={formData.Message}
+                onChange={handleInputChange}
+                className={errors.Message ? 'error' : ''}
+              />
+              {errors.Message && <span className="error-message">{errors.Message}</span>}
+            </div>
+
+            <div className="checkbox-section">
+              <label className="simple-checkbox-label">
+                <input
+                  type="checkbox"
+                  name="bIncludeAddressDetails"
+                  checked={formData.bIncludeAddressDetails}
                   onChange={handleInputChange}
-                  className={errors.Message ? 'error' : ''}
                 />
-                {errors.Message && <span className="error-message">{errors.Message}</span>}
-              </div>
+                <span className="simple-checkmark"></span>
+                Add address details
+              </label>
+            </div>
 
-              <div className="form-group checkbox-group">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    name="bIncludeAddressDetails"
-                    checked={formData.bIncludeAddressDetails}
-                    onChange={handleInputChange}
-                  />
-                  <span className="checkmark"></span>
-                  Include address details
-                </label>
-              </div>
-
-              {formData.bIncludeAddressDetails && (
-                <div className="address-section">
-                  <h3>Address Details</h3>
-                  
-                  <div className="form-group">
-                    <label htmlFor="AddressLine1">Address Line 1 *</label>
+            {formData.bIncludeAddressDetails && (
+              <div className="address-fields">
+                <div className="form-row-simple">
+                  <div className="form-group-simple">
+                    <label htmlFor="AddressLine1">Address line 1</label>
                     <input
                       type="text"
                       id="AddressLine1"
@@ -292,8 +310,8 @@ const ContactUs = () => {
                     {errors.AddressLine1 && <span className="error-message">{errors.AddressLine1}</span>}
                   </div>
 
-                  <div className="form-group">
-                    <label htmlFor="AddressLine2">Address Line 2</label>
+                  <div className="form-group-simple">
+                    <label htmlFor="AddressLine2">Address line 2 - optional</label>
                     <input
                       type="text"
                       id="AddressLine2"
@@ -302,80 +320,89 @@ const ContactUs = () => {
                       onChange={handleInputChange}
                     />
                   </div>
+                </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="CityTown">City/Town *</label>
-                      <input
-                        type="text"
-                        id="CityTown"
-                        name="AddressDetails.CityTown"
-                        value={formData.AddressDetails?.CityTown || ''}
-                        onChange={handleInputChange}
-                        className={errors.CityTown ? 'error' : ''}
-                      />
-                      {errors.CityTown && <span className="error-message">{errors.CityTown}</span>}
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="StateCounty">State/County</label>
-                      <input
-                        type="text"
-                        id="StateCounty"
-                        name="AddressDetails.StateCounty"
-                        value={formData.AddressDetails?.StateCounty || ''}
-                        onChange={handleInputChange}
-                      />
-                    </div>
+                <div className="form-row-four">
+                  <div className="form-group-simple">
+                    <label htmlFor="CityTown">City/Town</label>
+                    <input
+                      type="text"
+                      id="CityTown"
+                      name="AddressDetails.CityTown"
+                      value={formData.AddressDetails?.CityTown || ''}
+                      onChange={handleInputChange}
+                      className={errors.CityTown ? 'error' : ''}
+                    />
+                    {errors.CityTown && <span className="error-message">{errors.CityTown}</span>}
                   </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="Postcode">Postcode *</label>
-                      <input
-                        type="text"
-                        id="Postcode"
-                        name="AddressDetails.Postcode"
-                        value={formData.AddressDetails?.Postcode || ''}
-                        onChange={handleInputChange}
-                        className={errors.Postcode ? 'error' : ''}
-                      />
-                      {errors.Postcode && <span className="error-message">{errors.Postcode}</span>}
-                    </div>
+                  <div className="form-group-simple">
+                    <label htmlFor="StateCounty">State/County</label>
+                    <input
+                      type="text"
+                      id="StateCounty"
+                      name="AddressDetails.StateCounty"
+                      value={formData.AddressDetails?.StateCounty || ''}
+                      onChange={handleInputChange}
+                    />
+                  </div>
 
-                    <div className="form-group">
-                      <label htmlFor="Country">Country *</label>
-                      <input
-                        type="text"
-                        id="Country"
-                        name="AddressDetails.Country"
-                        value={formData.AddressDetails?.Country || ''}
-                        onChange={handleInputChange}
-                        className={errors.Country ? 'error' : ''}
-                      />
-                      {errors.Country && <span className="error-message">{errors.Country}</span>}
-                    </div>
+                  <div className="form-group-simple">
+                    <label htmlFor="Postcode">Postcode</label>
+                    <input
+                      type="text"
+                      id="Postcode"
+                      name="AddressDetails.Postcode"
+                      value={formData.AddressDetails?.Postcode || ''}
+                      onChange={handleInputChange}
+                      className={errors.Postcode ? 'error' : ''}
+                    />
+                    {errors.Postcode && <span className="error-message">{errors.Postcode}</span>}
+                  </div>
+
+                  <div className="form-group-simple">
+                    <label htmlFor="Country">Country</label>
+                    <input
+                      type="text"
+                      id="Country"
+                      name="AddressDetails.Country"
+                      value={formData.AddressDetails?.Country || ''}
+                      onChange={handleInputChange}
+                      className={errors.Country ? 'error' : ''}
+                    />
+                    {errors.Country && <span className="error-message">{errors.Country}</span>}
                   </div>
                 </div>
-              )}
+              </div>
+            )}
 
-              {submitStatus !== 'idle' && (
-                <div className={`submit-message ${submitStatus}`}>
-                  {submitMessage}
-                </div>
-              )}
+            {submitStatus !== 'idle' && (
+              <div className={`submit-message ${submitStatus}`}>
+                {submitMessage}
+              </div>
+            )}
 
-              <button 
-                type="submit" 
-                className="submit-btn"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit'}
-              </button>
-            </form>
-          </div>
+            <button 
+              type="submit" 
+              className="simple-submit-btn"
+              disabled={isSubmitting}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+              </svg>
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </button>
+          </form>
         </div>
-      </section>
+
+        <div className="contact-logo">
+          <img 
+            src={contactImage} 
+            alt="Contact illustration" 
+            className="contact-image"
+          />
+        </div>
+      </div>
     </div>
   )
 }
