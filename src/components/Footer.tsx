@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-separator"></div>
         <div className="footer-content">
           <p>
             Copyright ©2025 AVAMAE. All rights reserved. | 

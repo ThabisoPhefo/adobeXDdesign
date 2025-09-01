@@ -13,14 +13,27 @@ const AboutUs = () => {
           
           {aboutData.content.paragraphs.map((paragraph, index) => (
             <p key={index}>
-              {paragraph.link ? (
+              {paragraph.boldText ? (
                 <>
-                  {paragraph.text.split(paragraph.link.text)[0]}
-                  <Link to={paragraph.link.href} className="about-link">{paragraph.link.text}</Link>
-                  {paragraph.text.split(paragraph.link.text)[1]}
+                  <strong>{paragraph.boldText}</strong>
+                  {paragraph.text.substring(paragraph.boldText.length)}
+                  {paragraph.link && (
+                    <>
+                      <Link to={paragraph.link.href} className="about-link">{paragraph.link.text}</Link>
+                      {paragraph.text.split(paragraph.link.text)[1]}
+                    </>
+                  )}
                 </>
               ) : (
-                paragraph.text
+                paragraph.link ? (
+                  <>
+                    {paragraph.text.split(paragraph.link.text)[0]}
+                    <Link to={paragraph.link.href} className="about-link">{paragraph.link.text}</Link>
+                    {paragraph.text.split(paragraph.link.text)[1]}
+                  </>
+                ) : (
+                  paragraph.text
+                )
               )}
             </p>
           ))}
@@ -37,6 +50,19 @@ const AboutUs = () => {
           <ul className="about-list">
             {aboutData.content.section.list.map((item, index) => (
               <li key={index}>{item}</li>
+            ))}
+          </ul>
+
+          {/* Additional Content */}
+          {aboutData.content.additionalContent.paragraphs.map((paragraph, index) => (
+            <p key={`additional-${index}`}>
+              {paragraph.text}
+            </p>
+          ))}
+
+          <ul className="about-list">
+            {aboutData.content.additionalContent.list.map((item, index) => (
+              <li key={`additional-list-${index}`}>{item}</li>
             ))}
           </ul>
         </div>
