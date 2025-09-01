@@ -3,6 +3,7 @@ import ContentSection from '../components/ContentSection';
 import HeroOverlay from '../components/HeroOverlay';
 import InfoSection from '../components/InfoSection';
 import { useHomeData } from '../hooks/useHomeData';
+import homeData from '../data/home.json';
 
 const Home: React.FC = () => {
   const { data, loading, error } = useHomeData();
@@ -11,7 +12,7 @@ const Home: React.FC = () => {
     return (
       <div className="home">
         <div className="home__loading">
-          <p>Loading...</p>
+          <p>{homeData.messages.loading}</p>
         </div>
       </div>
     );
@@ -21,7 +22,7 @@ const Home: React.FC = () => {
     return (
       <div className="home">
         <div className="home__error">
-          <p>Error loading page data: {error}</p>
+          <p>{homeData.messages.error}: {error}</p>
         </div>
       </div>
     );

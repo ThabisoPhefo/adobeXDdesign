@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
 import signinData from '../data/signin.json'
 
@@ -172,17 +174,17 @@ const SignIn = () => {
             </button>
 
             <div className="auth-links">
-              <p>{signinData.form.links.signup.text} <a href={signinData.form.links.signup.href} className="auth-link">{signinData.form.links.signup.linkText}</a></p>
-              <p><a href={signinData.form.links.forgotPassword.href} className="auth-link">{signinData.form.links.forgotPassword.text}</a></p>
+              <p>{signinData.form.links.signup.text} <Link to={signinData.form.links.signup.href} className="auth-link">{signinData.form.links.signup.linkText}</Link></p>
+              <p><Link to={signinData.form.links.forgotPassword.href} className="auth-link">{signinData.form.links.forgotPassword.text}</Link></p>
             </div>
           </form>
         </div>
 
         <div className="contact-logo">
-          <img 
+          <LazyImage 
             src={contactImage} 
             alt="Sign in illustration" 
-            className="contact-image"
+            className="contact-image auth-image"
           />
         </div>
       </div>

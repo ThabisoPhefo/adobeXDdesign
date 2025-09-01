@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
 import signupData from '../data/signup.json'
 
@@ -219,7 +221,7 @@ const SignUp = () => {
                 />
                 <span className="simple-checkmark"></span>
                 {signupData.form.options.acceptTerms.label.replace('Terms and Conditions', '')} 
-                <a href={signupData.form.options.acceptTerms.href} className="auth-link">{signupData.form.options.acceptTerms.linkText}</a>
+                <Link to={signupData.form.options.acceptTerms.href} className="auth-link">{signupData.form.options.acceptTerms.linkText}</Link>
               </label>
               {errors.AcceptTerms && <span className="error-message">{errors.AcceptTerms}</span>}
             </div>
@@ -255,16 +257,16 @@ const SignUp = () => {
             </button>
 
             <div className="auth-links">
-              <p>{signupData.form.links.signin.text} <a href={signupData.form.links.signin.href} className="auth-link">{signupData.form.links.signin.linkText}</a></p>
+              <p>{signupData.form.links.signin.text} <Link to={signupData.form.links.signin.href} className="auth-link">{signupData.form.links.signin.linkText}</Link></p>
             </div>
           </form>
         </div>
 
         <div className="contact-logo">
-          <img 
+          <LazyImage 
             src={contactImage} 
             alt="Sign up illustration" 
-            className="contact-image"
+            className="contact-image auth-image"
           />
         </div>
       </div>

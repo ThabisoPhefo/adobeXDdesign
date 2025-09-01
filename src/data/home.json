@@ -1,4 +1,8 @@
 {
+  "messages": {
+    "loading": "Loading...",
+    "error": "Error loading page data"
+  },
   "hero": {
     "slides": [
       {

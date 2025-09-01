@@ -1,8 +1,9 @@
 {
-  "logo": {
-    "alt": "Company Logo"
-  },
   "copyright": {
-    "text": "© 2024 Company. All rights reserved."
+    "text": "Copyright ©2025 AVAMAE. All rights reserved. | Website development by AVAMAE"
+  },
+  "link": {
+    "text": "Website development by AVAMAE",
+    "href": "https://avamae.co.uk"
   }
 }

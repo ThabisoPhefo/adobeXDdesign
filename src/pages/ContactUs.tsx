@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
+import LazyImage from '../components/LazyImage'
 import contactImage from '../assets/resources/Img_Contact.png'
+import contactData from '../data/contact.json'
 
 interface FormData {
   FullName: string
@@ -172,7 +174,7 @@ const ContactUs = () => {
 
       if (response.status === 200) {
         setSubmitStatus('success')
-        setSubmitMessage('Thank you for your message! We will get back to you soon.')
+        setSubmitMessage(contactData.form.messages.success)
         // Reset form
         setFormData({
           FullName: '',
@@ -195,7 +197,7 @@ const ContactUs = () => {
       if (error.response?.data?.message) {
         setSubmitMessage(error.response.data.message)
       } else {
-        setSubmitMessage('An error occurred while submitting the form. Please try again.')
+        setSubmitMessage(contactData.form.messages.error)
       }
     } finally {
       setIsSubmitting(false)
@@ -378,7 +380,21 @@ const ContactUs = () => {
 
             {submitStatus !== 'idle' && (
               <div className={`submit-message ${submitStatus}`}>
-                {submitMessage}
+                {submitStatus === 'success' ? (
+                  <div className="success-message-container">
+                    <div className="success-icon">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    <div className="success-text">
+                      <div className="success-title">{submitMessage}</div>
+                      <div className="success-subtitle">{contactData.form.messages.successSubtext}</div>
+                    </div>
+                  </div>
+                ) : (
+                  submitMessage
+                )}
               </div>
             )}
 
@@ -396,7 +412,7 @@ const ContactUs = () => {
         </div>
 
         <div className="contact-logo">
-          <img 
+          <LazyImage 
             src={contactImage} 
             alt="Contact illustration" 
             className="contact-image"
