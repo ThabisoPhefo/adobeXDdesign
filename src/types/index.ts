@@ -57,3 +57,88 @@ export interface HomePageData {
   callToActionSection: CallToActionSection;
   infoSection: InfoSection;
 }
+
+// Authentication types
+export interface AuthField {
+  label: string;
+  required: boolean;
+  type: string;
+  placeholder: string;
+  validation?: {
+    minLength?: number;
+    pattern?: string;
+    message?: string;
+  };
+}
+
+export interface AuthOption {
+  label: string;
+  type: string;
+  required?: boolean;
+  linkText?: string;
+  href?: string;
+}
+
+export interface AuthLink {
+  text: string;
+  linkText?: string;
+  href: string;
+}
+
+export interface AuthMessages {
+  success: string;
+  error: string;
+}
+
+export interface AuthSubmitButton {
+  text: string;
+  loadingText: string;
+}
+
+export interface AuthFormConfig {
+  fields: Record<string, AuthField>;
+  options?: Record<string, AuthOption>;
+  submitButton: AuthSubmitButton;
+  links?: Record<string, AuthLink>;
+  messages: AuthMessages;
+}
+
+export interface AuthHero {
+  title: string;
+  subtitle: string;
+}
+
+export interface AuthPageData {
+  hero: AuthHero;
+  form: AuthFormConfig;
+}
+
+// Sign In specific types
+export interface SignInFormData {
+  EmailAddress: string;
+  Password: string;
+  RememberMe: boolean;
+}
+
+export interface SignInFormErrors {
+  EmailAddress?: string;
+  Password?: string;
+}
+
+// Sign Up specific types
+export interface SignUpFormData {
+  FullName: string;
+  EmailAddress: string;
+  Password: string;
+  ConfirmPassword: string;
+  AcceptTerms: boolean;
+  ReceiveUpdates: boolean;
+}
+
+export interface SignUpFormErrors {
+  FullName?: string;
+  EmailAddress?: string;
+  Password?: string;
+  ConfirmPassword?: string;
+  AcceptTerms?: string;
+}

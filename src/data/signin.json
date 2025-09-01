@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "title": "Sign In",
+    "subtitle": "Welcome back! Please sign in to your account to continue."
+  },
+  "form": {
+    "fields": {
+      "emailAddress": {
+        "label": "Email Address",
+        "required": true,
+        "type": "email",
+        "placeholder": "Enter your email address"
+      },
+      "password": {
+        "label": "Password",
+        "required": true,
+        "type": "password",
+        "placeholder": "Enter your password"
+      }
+    },
+    "options": {
+      "rememberMe": {
+        "label": "Remember me",
+        "type": "checkbox"
+      }
+    },
+    "submitButton": {
+      "text": "Sign In",
+      "loadingText": "Signing in..."
+    },
+    "links": {
+      "signup": {
+        "text": "Don't have an account?",
+        "linkText": "Sign up here",
+        "href": "/signup"
+      },
+      "forgotPassword": {
+        "text": "Forgot your password?",
+        "href": "/forgot-password"
+      }
+    },
+    "messages": {
+      "success": "Welcome back! You have been successfully signed in.",
+      "error": "Invalid email or password. Please try again."
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "Sign Up",
+    "subtitle": "Create your account to get started. Join our community today!"
+  },
+  "form": {
+    "fields": {
+      "fullName": {
+        "label": "Full Name",
+        "required": true,
+        "type": "text",
+        "placeholder": "Enter your full name"
+      },
+      "emailAddress": {
+        "label": "Email Address",
+        "required": true,
+        "type": "email",
+        "placeholder": "Enter your email address"
+      },
+      "password": {
+        "label": "Password",
+        "required": true,
+        "type": "password",
+        "placeholder": "Create a password",
+        "validation": {
+          "minLength": 8,
+          "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*#?&]{8,}$",
+          "message": "Password must be at least 8 characters and contain at least one letter and one number"
+        }
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "required": true,
+        "type": "password",
+        "placeholder": "Confirm your password"
+      }
+    },
+    "options": {
+      "acceptTerms": {
+        "label": "I accept the Terms and Conditions",
+        "type": "checkbox",
+        "required": true,
+        "linkText": "Terms and Conditions",
+        "href": "/terms"
+      },
+      "receiveUpdates": {
+        "label": "I would like to receive updates and promotional emails",
+        "type": "checkbox",
+        "required": false
+      }
+    },
+    "submitButton": {
+      "text": "Create Account",
+      "loadingText": "Creating account..."
+    },
+    "links": {
+      "signin": {
+        "text": "Already have an account?",
+        "linkText": "Sign in here",
+        "href": "/signin"
+      }
+    },
+    "messages": {
+      "success": "Account created successfully! Please check your email to verify your account.",
+      "error": "An error occurred while creating your account. Please try again."
+    }
+  }
+}

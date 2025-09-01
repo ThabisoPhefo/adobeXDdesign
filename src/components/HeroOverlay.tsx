@@ -1,5 +1,6 @@
 import type { CallToActionSection } from '../types';
 import Button from './Button';
+import heroImage from '../assets/resources/Img_002.jpg';
 
 interface HeroOverlayProps {
   data: CallToActionSection;
@@ -10,7 +11,7 @@ const HeroOverlay: React.FC<HeroOverlayProps> = ({ data }) => {
     <section 
       className="hero-overlay"
       style={{
-        backgroundImage: `url(${data.backgroundImage})`,
+        backgroundImage: `url(${heroImage})`,
       }}
     >
       <div className="hero-overlay__container">

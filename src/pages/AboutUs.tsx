@@ -1,5 +1,5 @@
 
-import officeImage from '../assets/resources/Img_002.jpg'
+import officeImage from '../assets/resources/Img_001.jpg'
 
 const AboutUs = () => {
   return (

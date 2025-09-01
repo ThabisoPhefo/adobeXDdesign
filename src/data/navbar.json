@@ -1,0 +1,31 @@
+{
+  "logo": {
+    "alt": "Company Logo"
+  },
+  "navigation": {
+    "links": [
+      {
+        "text": "Home",
+        "href": "/",
+        "id": "home"
+      },
+      {
+        "text": "About us", 
+        "href": "/about",
+        "id": "about"
+      },
+      {
+        "text": "Contact us",
+        "href": "/contact", 
+        "id": "contact"
+      }
+    ],
+    "signInButton": {
+      "text": "Sign in",
+      "href": "/signin"
+    },
+    "hamburger": {
+      "ariaLabel": "Toggle navigation menu"
+    }
+  }
+}

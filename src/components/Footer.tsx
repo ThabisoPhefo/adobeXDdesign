@@ -1,5 +1,6 @@
 
 import logo from '../assets/resources/Logo.svg'
+import footerData from '../data/footer.json'
 
 const Footer = () => {
   return (
@@ -7,11 +8,11 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-left">
           <div className="logo-section">
-            <img src={logo} alt="Company Logo" className="footer-logo" />
+            <img src={logo} alt={footerData.logo.alt} className="footer-logo" />
           </div>
         </div>
         <div className="footer-right">
-          <p>&copy; 2024 Company. All rights reserved.</p>
+          <p>{footerData.copyright.text}</p>
         </div>
       </div>
     </footer>
