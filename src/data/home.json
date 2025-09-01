@@ -30,30 +30,23 @@
   },
   "callToActionSection": {
     "title": "Nulla sem urna, dictum sed nisl in, viverra rutrum neque",
-    "description": "Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut ante ligula. Pellentesque augue ex, pellentesque et maximus nec, eleifend at lorem. Vestibulum rutrum malesuada sapien, molestie mattis velit maximus at. Quisque lacinia hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam.",
-    "ctaText": "Log in",
-    "ctaLink": "#"
+    "description": "Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut arcu ligula. Pellentesque augue ex, pellentesque ut maximus non, eleifend ut lorem. Vestibulum rutrum malesuada turpis, molestie mattis velit maximus ac. Quisque iaculis hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam.",
+    "ctaText": "Log In",
+    "ctaLink": "#",
+    "backgroundImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
   },
-  "bottomSection": {
+  "infoSection": {
     "title": "Justo petentium te vix, scripta regione urbanitas",
-    "subtitle": "Tariq duo ut vis semper abhorreant",
+    "subtitle": "Taria duo ut vis semper abhorreant",
     "columns": [
       {
-        "text": "Pellentesque ac condimentum felis, suscipiendque sed velit. Maecenas dolor nec laoreet mollit. Nam auctor ultrices sapibus. Donec sit amet dui quis finibus lacus. Cras in ultricies neque. Curabitur eget turpis iaculis diam congue sagittis sit amet quis est. Nullam quis est ante. Nunc felis massa, pharetra non gravida in, fermentum sit amet enim. In hac habitasse platea dictumst. Donec rutrum, lorem eu mollis lacinia, dolor ipsum facilisis quam, at pulvinar felis tellus sed elit."
+        "text": "Pellentesque ac condimentum felis. Suspendisse vel suscipit dolor, nec laoreet nulla. Nam auctor ultrices dapibus. Donec ac interdum dui, quis finibus lectus. Cras in ultrices neque. Curabitur eget turpis iaculis diam congue sagittis a vel ligula. Mauris ut arcu ex. Nullam quis orci ante. Nunc felis massa, posuere non gravida in, commodo in arcu. In feugiat magna non volutpat faucibus. Nam aliquam justo nec aliquam iaculis. Integer laoreet pulvinar elit pulvinar fermentum. Morbi vehicula sodales nunc ac varius. Proin porttitor porttitor libero vel pharetra.\n\nCras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur"
       },
       {
-        "text": "Sed volutpat magna ac felis hendrerit tempus. Duis eget lacinia mauris. Mauris quis nunc sem orci eget porta blandit a nec sapien. Mauris porttitor lorem ut sagittis auctor. Donec molestie tempor nibh, nec venenatis arcu ullamcorper et amet. Nulla facilisi. Proin cursus neque et volutpat tempor. Proin faucibus ex non nibh tempor blandit. Donec dapibus sapien et lobortis fermentum. Nullam ut quam nec magna tristique porta volutpat ut lorem. Morbi ac sodales diam ut lorem. Pellentesque molestie quam et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque molestie lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra."
+        "text": "ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut arcu ligula. Pellentesque augue ex, pellentesque ut maximus non, eleifend ut lorem. Vestibulum rutrum malesuada turpis, molestie mattis velit maximus ac. Quisque iaculis hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam. Suspendisse tristique vel dui nec semper. Cras mattis ligula quis fermentum suscipit. Proin et elementum arcu, sit amet porttitor diam. Curabitur euismod, erat vitae tristique volutpat, augue lectus dignissim justo, at faucibus orci est a elit.\n\nSed sed sapien pretium, maximus felis vel, mollis elit. Sed libero justo, lobortis sit amet suscipit non, auctor non"
       },
       {
-        "text": "Mauris quis nunc sem orci eget porta blandit a nec sapien. Mauris porttitor lorem ut sagittis auctor. Donec molestie tempor nibh, nec venenatis arcu ullamcorper et amet. Nulla facilisi. Proin cursus neque et volutpat tempor. Proin faucibus ex non nibh tempor blandit. Donec dapibus sapien et lobortis fermentum. Nullam ut quam nec magna tristique porta volutpat ut lorem. Morbi ac sodales diam ut lorem. Pellentesque molestie quam et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque molestie lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra. Pellentesque rutrum lorem et lorem sed viverra."
-      }
-    ],
-    "additionalColumns": [
-      {
-        "text": "Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut ante ligula. Pellentesque augue ex, pellentesque et maximus nec, eleifend at lorem. Vestibulum rutrum malesuada sapien, molestie mattis velit maximus at. Quisque lacinia hendrerit ex et tincidunt. Aenean eu magna ut nisl placerat fringilla in sed diam. Suspendisse tristique ex vel sed imperdiet. Aenean eu magna ut nisl placerat fringilla in sed diam. Suspendisse tristique ex vel sed imperdiet."
-      },
-      {
-        "text": "Sed sed sapien pretium, maximus felis vel, mollis est. Sed sed sapien pretium, maximus felis vel, mollis est. Pellentesque eget justo lobortis ex amet suscipit non, auctor non. Pellentesque eget justo lobortis ex amet suscipit non, auctor non."
+        "text": "libero. Maecenas quis nisl eget enim porta blandit a nec sapien. Mauris porttitor lorem et egestas euismod. Donec molestie tempor nibh, nec venenatis arcu ullamcorper sit amet. Nulla facilisi. Proin cursus neque ut tortor scelerisque, et iaculis nunc ornare. Pellentesque non nunc nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean et sodales diam, ullamcorper sit amet. Nulla facilisi. Proin cursus neque ut tortor scelerisque, et iaculis nunc ornare. Pellentesque non nunc nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean et sodales diam"
       }
     ],
     "ctaText": "Contact us",

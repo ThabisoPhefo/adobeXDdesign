@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import './Carousel.css'
+
 
 interface CarouselItem {
   ImageUrl: string
@@ -14,7 +14,7 @@ const Carousel = () => {
   const [items, setItems] = useState<CarouselItem[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchCarouselData = async () => {
