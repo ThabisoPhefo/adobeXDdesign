@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import IconArrow from '../assets/resources/Icon_Arrow.svg'
 
 
 interface CarouselItem {
@@ -21,14 +22,13 @@ const Carousel = () => {
       try {
         const response = await axios.get('https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details')
         if (response.data.Details && response.data.Details.length > 0) {
-          // Filter to only show the first 2 images (swiper_image_1.jpg and swiper_image_2.jpg)
+
           const filteredItems = response.data.Details.filter((item: CarouselItem) => 
             item.ImageUrl.includes('swiper_image_1.jpg') || 
             item.ImageUrl.includes('swiper_image_2.jpg')
           ).slice(0, 2)
           setItems(filteredItems)
         } else {
-          // Fallback data with only 2 specific images
           setItems([
             {
               ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_1.jpg',
@@ -45,7 +45,6 @@ const Carousel = () => {
         setLoading(false)
       } catch (err) {
         console.error('Error fetching carousel data:', err)
-        // Fallback data with only 2 specific images
         setItems([
           {
             ImageUrl: 'https://interview-assessment.api.avamae.co.uk/Images/swiper_image_1.jpg',
@@ -116,10 +115,10 @@ const Carousel = () => {
       {items.length > 1 && (
         <>
           <button className="carousel-nav prev" onClick={prevSlide}>
-            &#8249;
+            <img src={IconArrow} alt="Previous" className="arrow-icon" />
           </button>
           <button className="carousel-nav next" onClick={nextSlide}>
-            &#8250;
+            <img src={IconArrow} alt="Next" className="arrow-icon" />
           </button>
           
           <div className="carousel-indicators">
