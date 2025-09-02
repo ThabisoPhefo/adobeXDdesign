@@ -104,9 +104,7 @@ const Carousel = () => {
         <div className="carousel-overlay">
           <div className="carousel-content">
             <h1 className="carousel-title">{items[currentIndex].Title}</h1>
-            {items[currentIndex].Subtitle && (
-              <p className="carousel-subtitle">{items[currentIndex].Subtitle}</p>
-            )}
+            <p className="carousel-subtitle">{"Quem vide tincidunt pri ei, id mea omnium denique."}</p>
             <button className="carousel-cta" onClick={() => navigate('/contact')}>Contact us</button>
           </div>
         </div>

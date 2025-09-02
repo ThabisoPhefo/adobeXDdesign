@@ -392,7 +392,7 @@ img {
 }
 
 .carousel-content {
-  max-width: 600px;
+  max-width: 520px;
   color: white;
   z-index: 2;
   overflow-wrap: break-word;
@@ -402,7 +402,7 @@ img {
 }
 
 .carousel-title {
-  font-size: 3.5rem;
+  font-size: 3.9rem;
   font-weight: 400;
   margin: 0 0 20px 0;
   line-height: 1.2;
@@ -410,7 +410,7 @@ img {
 }
 
 .carousel-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 0 0 30px 0;
   opacity: 0.9;
   line-height: 1.5;
@@ -1526,9 +1526,10 @@ img {
   }
   
   .carousel-content {
-    max-width: 100%;
+    max-width: 72%;
     padding-right: 10px;
-    margin-left: 20px; /* minimal gap on mobile */
+    margin: 0 auto; /* center container on mobile */
+    text-align: left; /* keep text left aligned */
   }
 
   .content-section__title {
